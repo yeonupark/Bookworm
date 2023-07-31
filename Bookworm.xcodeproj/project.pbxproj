@@ -13,6 +13,14 @@
 		48DBF00C2A77D713008454E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF00A2A77D713008454E4 /* Main.storyboard */; };
 		48DBF00E2A77D718008454E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF00D2A77D718008454E4 /* Assets.xcassets */; };
 		48DBF0112A77D718008454E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF00F2A77D718008454E4 /* LaunchScreen.storyboard */; };
+		48DBF0192A77D879008454E4 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0182A77D879008454E4 /* MovieInfo.swift */; };
+		48DBF01B2A77D8AF008454E4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF01A2A77D8AF008454E4 /* Movie.swift */; };
+		48DBF01D2A77E539008454E4 /* MovieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF01C2A77E539008454E4 /* MovieCollectionViewController.swift */; };
+		48DBF0202A77E58C008454E4 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF01E2A77E58C008454E4 /* MovieCollectionViewCell.swift */; };
+		48DBF0212A77E58C008454E4 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF01F2A77E58C008454E4 /* MovieCollectionViewCell.xib */; };
+		48DBF0232A77F015008454E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0222A77F015008454E4 /* DetailViewController.swift */; };
+		48DBF0252A77F434008454E4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0242A77F434008454E4 /* SearchViewController.swift */; };
+		48DBF0272A77FBDD008454E4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0262A77FBDD008454E4 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		48DBF00D2A77D718008454E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48DBF0102A77D718008454E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48DBF0122A77D718008454E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DBF0182A77D879008454E4 /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		48DBF01A2A77D8AF008454E4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		48DBF01C2A77E539008454E4 /* MovieCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewController.swift; sourceTree = "<group>"; };
+		48DBF01E2A77E58C008454E4 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		48DBF01F2A77E58C008454E4 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		48DBF0222A77F015008454E4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		48DBF0242A77F434008454E4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		48DBF0262A77FBDD008454E4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +72,18 @@
 		48DBF0032A77D713008454E4 /* Bookworm */ = {
 			isa = PBXGroup;
 			children = (
+				48DBF0242A77F434008454E4 /* SearchViewController.swift */,
+				48DBF0222A77F015008454E4 /* DetailViewController.swift */,
 				48DBF0042A77D713008454E4 /* AppDelegate.swift */,
+				48DBF0262A77FBDD008454E4 /* Extension.swift */,
 				48DBF0062A77D713008454E4 /* SceneDelegate.swift */,
 				48DBF0082A77D713008454E4 /* ViewController.swift */,
 				48DBF00A2A77D713008454E4 /* Main.storyboard */,
+				48DBF01E2A77E58C008454E4 /* MovieCollectionViewCell.swift */,
+				48DBF01F2A77E58C008454E4 /* MovieCollectionViewCell.xib */,
+				48DBF01C2A77E539008454E4 /* MovieCollectionViewController.swift */,
+				48DBF0182A77D879008454E4 /* MovieInfo.swift */,
+				48DBF01A2A77D8AF008454E4 /* Movie.swift */,
 				48DBF00D2A77D718008454E4 /* Assets.xcassets */,
 				48DBF00F2A77D718008454E4 /* LaunchScreen.storyboard */,
 				48DBF0122A77D718008454E4 /* Info.plist */,
@@ -128,6 +152,7 @@
 				48DBF0112A77D718008454E4 /* LaunchScreen.storyboard in Resources */,
 				48DBF00E2A77D718008454E4 /* Assets.xcassets in Resources */,
 				48DBF00C2A77D713008454E4 /* Main.storyboard in Resources */,
+				48DBF0212A77E58C008454E4 /* MovieCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +165,14 @@
 			files = (
 				48DBF0092A77D713008454E4 /* ViewController.swift in Sources */,
 				48DBF0052A77D713008454E4 /* AppDelegate.swift in Sources */,
+				48DBF0192A77D879008454E4 /* MovieInfo.swift in Sources */,
+				48DBF0252A77F434008454E4 /* SearchViewController.swift in Sources */,
 				48DBF0072A77D713008454E4 /* SceneDelegate.swift in Sources */,
+				48DBF0272A77FBDD008454E4 /* Extension.swift in Sources */,
+				48DBF0202A77E58C008454E4 /* MovieCollectionViewCell.swift in Sources */,
+				48DBF01B2A77D8AF008454E4 /* Movie.swift in Sources */,
+				48DBF01D2A77E539008454E4 /* MovieCollectionViewController.swift in Sources */,
+				48DBF0232A77F015008454E4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +332,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sesac.Bookworm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesac.Week3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -328,7 +360,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sesac.Bookworm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesac.Week3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

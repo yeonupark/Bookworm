@@ -13,4 +13,5 @@ struct Movie {
     let runtime: Int
     let overview: String
     let rate: Float
+    var like = false
 }

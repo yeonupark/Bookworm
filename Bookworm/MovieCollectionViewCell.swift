@@ -12,10 +12,12 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var rateLabel: UILabel!
+    @IBOutlet var likeButton: UIButton!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
+  
 }

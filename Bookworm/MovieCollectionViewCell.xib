@@ -34,11 +34,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVc-Ug-2Ja">
+                        <rect key="frame" x="16" y="86" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wVc-Ug-2Ja" secondAttribute="height" multiplier="1:1" id="qih-8n-fwo"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title=""/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="aU8-7C-Wko" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="4Z5-kb-hkT"/>
+                <constraint firstItem="aU8-7C-Wko" firstAttribute="top" secondItem="wVc-Ug-2Ja" secondAttribute="bottom" constant="8" id="BeO-b7-2XN"/>
+                <constraint firstItem="cS5-Ud-4KI" firstAttribute="leading" secondItem="wVc-Ug-2Ja" secondAttribute="trailing" constant="12" id="FSt-vG-BbT"/>
+                <constraint firstItem="wVc-Ug-2Ja" firstAttribute="leading" secondItem="aU8-7C-Wko" secondAttribute="leading" id="Qsf-1w-MBM"/>
                 <constraint firstItem="cS5-Ud-4KI" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="60" id="ZC4-Ti-6Pm"/>
                 <constraint firstItem="cS5-Ud-4KI" firstAttribute="leading" secondItem="aU8-7C-Wko" secondAttribute="trailing" constant="8" id="jLC-hD-sxX"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="aU8-7C-Wko" secondAttribute="bottom" constant="16" id="jw5-PI-puh"/>
@@ -50,6 +61,7 @@
             </constraints>
             <size key="customSize" width="161" height="163"/>
             <connections>
+                <outlet property="likeButton" destination="wVc-Ug-2Ja" id="zmH-es-2hK"/>
                 <outlet property="posterImageView" destination="cS5-Ud-4KI" id="X20-Vr-DOQ"/>
                 <outlet property="rateLabel" destination="aU8-7C-Wko" id="zmf-SG-biM"/>
                 <outlet property="titleLabel" destination="BcH-wa-VN6" id="5xl-8N-qg3"/>

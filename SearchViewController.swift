@@ -12,13 +12,14 @@ class SearchViewController: UIViewController {
     @IBOutlet var contentLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "검색화면"
+        title = "검색 화면"
+        
+        contentLabel.text = "검색화면"
+        contentLabel.textAlignment = .center
+        contentLabel.textColor = .black
         
         let xmark = UIImage(systemName: "xmark")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: xmark, style: .plain, target: self, action: #selector(closeButtonClicked))
-        
-        contentLabel.text = "검색 화면"
-        contentLabel.textAlignment = .center
     }
     
     @objc

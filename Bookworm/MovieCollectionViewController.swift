@@ -11,8 +11,9 @@ private let reuseIdentifier = "Cell"
 
 class MovieCollectionViewController: UICollectionViewController {
 
-    let myMovie = MovieInfo()
-    var colors: [UIColor] = [.systemPink, .systemOrange, .systemMint, .systemYellow, .purple, .systemBrown, .systemCyan, .systemBlue, .systemIndigo]
+    var myMovie = MovieInfo()
+    var colors: [UIColor] = [.systemPink, .systemOrange, .systemMint, .systemYellow, .purple, .systemBrown, .systemCyan, .systemGray, .systemIndigo]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,10 +51,24 @@ class MovieCollectionViewController: UICollectionViewController {
         cell.posterImageView.image = UIImage(named: row.title)
         cell.rateLabel.text = String(row.rate)
         
-        //cell.backgroundColor = .lightGray
+        let heart = row.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        
+        cell.likeButton.setImage(heart, for: .normal)
+        cell.likeButton.tintColor = .white
+        
         cell.designCell(color: colors[indexPath.row])
         
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc
+    func likeButtonClicked(_ sender: UIButton){
+        myMovie.movie[sender.tag].like.toggle()
+        
+        collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -61,7 +76,15 @@ class MovieCollectionViewController: UICollectionViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
-        vc.movieTitle = myMovie.movie[indexPath.row].title
+        let item = myMovie.movie[indexPath.item]
+        
+        vc.movieTitle = item.title
+        vc.overview = item.overview
+        vc.runtime = item.runtime
+        vc.rate = item.rate
+        vc.releaseDate = item.releaseDate
+        vc.backgroundColor = colors[indexPath.row]
+        vc.heart = item.like
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -77,5 +100,7 @@ class MovieCollectionViewController: UICollectionViewController {
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
+    
+    
     
 }

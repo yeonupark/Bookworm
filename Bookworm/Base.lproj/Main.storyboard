@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vyl-lU-5Xi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qRd-3k-9nl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Collection View Controller-->
+        <!--Tap3-->
         <scene sceneID="yjk-AL-dCE">
             <objects>
                 <collectionViewController storyboardIdentifier="MovieCollectionViewController" id="QXp-rS-1Vz" customClass="MovieCollectionViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,6 +39,7 @@
                             <outlet property="delegate" destination="QXp-rS-1Vz" id="b60-Fa-Hax"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Tap3" selectedImage="star.fill" catalog="system" id="BvC-yD-uHr"/>
                     <navigationItem key="navigationItem" id="lDO-CA-Zpi">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="duo-jC-LCG">
                             <connections>
@@ -49,6 +51,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYy-04-XkU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1740" y="4"/>
+        </scene>
+        <!--Tap1-->
+        <scene sceneID="Umq-Mz-3k8">
+            <objects>
+                <viewController storyboardIdentifier="LookViewController" id="P5h-a3-nCU" customClass="LookViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t13-Xu-XF6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izn-w5-OrD">
+                                <rect key="frame" x="0.0" y="139" width="393" height="630"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RecentTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentTableViewCell" rowHeight="147" id="mBV-Sh-uYM" customClass="RecentTableViewCell" customModule="Bookworm" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="147"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mBV-Sh-uYM" id="3hJ-eQ-S44">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="147"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aah-tf-1OQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="147"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ecA-fb-fiK">
+                                                        <size key="itemSize" width="128" height="128"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RecentCollectionViewCell" id="tkV-5G-KSh" customClass="RecentCollectionViewCell" customModule="Bookworm" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LXY-Cq-4dX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </collectionViewCellContentView>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aah-tf-1OQ" firstAttribute="leading" secondItem="3hJ-eQ-S44" secondAttribute="leading" id="Ani-TL-54e"/>
+                                                <constraint firstAttribute="bottom" secondItem="aah-tf-1OQ" secondAttribute="bottom" id="E2j-0I-ZCw"/>
+                                                <constraint firstItem="aah-tf-1OQ" firstAttribute="top" secondItem="3hJ-eQ-S44" secondAttribute="top" id="f2m-ML-c3D"/>
+                                                <constraint firstAttribute="trailing" secondItem="aah-tf-1OQ" secondAttribute="trailing" id="m1T-XR-FPJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recentCollectionView" destination="aah-tf-1OQ" id="Im2-nI-bZ1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="170" id="MD6-fV-RdH" customClass="PopularTableViewCell" customModule="Bookworm" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="197" width="393" height="170"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="MD6-fV-RdH" id="noP-3j-MCt">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="170"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dhc-5p-TtZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Izn-w5-OrD" secondAttribute="trailing" id="605-ky-sqY"/>
+                            <constraint firstItem="Izn-w5-OrD" firstAttribute="leading" secondItem="t13-Xu-XF6" secondAttribute="leading" id="QnC-Z0-d6d"/>
+                            <constraint firstItem="Izn-w5-OrD" firstAttribute="top" secondItem="dhc-5p-TtZ" secondAttribute="top" constant="80" id="mS9-rg-5dm"/>
+                            <constraint firstItem="Izn-w5-OrD" firstAttribute="bottom" secondItem="dhc-5p-TtZ" secondAttribute="bottom" id="zTG-1p-pLl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tap1" selectedImage="star.fill" catalog="system" id="iu9-5T-OAK"/>
+                    <connections>
+                        <outlet property="popularTableView" destination="Izn-w5-OrD" id="vwp-A5-67J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YF8-Rg-Y5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3593.129770992366" y="714.78873239436621"/>
+        </scene>
+        <!--Tap2-->
+        <scene sceneID="wDk-Ha-Tua">
+            <objects>
+                <viewController id="8td-BN-LEN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sa0-xg-og4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="deA-RH-yZB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tap2" selectedImage="star.fill" catalog="system" id="leh-ot-vbg">
+                        <color key="badgeColor" name="AccentColor"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUI-v7-Qbe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4512.2137404580153" y="714.78873239436621"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="1Zo-AF-kNR">
@@ -158,8 +260,34 @@
             </objects>
             <point key="canvasLocation" x="872.51908396946567" y="3.5211267605633805"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="evg-VY-YeZ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qRd-3k-9nl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="74s-uz-MZb">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="P5h-a3-nCU" kind="relationship" relationship="viewControllers" id="ioc-kI-Luk"/>
+                        <segue destination="8td-BN-LEN" kind="relationship" relationship="viewControllers" id="tRp-pS-3Rq"/>
+                        <segue destination="QXp-rS-1Vz" kind="relationship" relationship="viewControllers" id="yWq-bc-xDs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKQ-Zp-srU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2666.4122137404579" y="714.78873239436621"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yWq-bc-xDs"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

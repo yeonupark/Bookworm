@@ -86,7 +86,8 @@ class MovieCollectionViewController: UICollectionViewController {
         vc.backgroundColor = colors[indexPath.row]
         vc.heart = item.like
         
-        navigationController?.pushViewController(vc, animated: true)
+        present(vc, animated: true)
+        //navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {

@@ -9,7 +9,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var overviewLabel: UILabel!
+
+    @IBOutlet var memoTextView: UITextView!
+    @IBOutlet var overviewTextView: UITextView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
     
@@ -21,10 +23,15 @@ class DetailViewController: UIViewController {
     var backgroundColor: UIColor = .white
     var heart = false
     
+    let placeholderText = "메모를 작성해보세요!"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgroundColor
         title = movieTitle
+        
+        memoTextView.delegate = self
+        designMemo()
         
         designTitle()
         designInfo()
@@ -33,11 +40,11 @@ class DetailViewController: UIViewController {
     }
     
     func designOverview() {
-        overviewLabel.text = "줄거리:\n\(overview)"
-        overviewLabel.numberOfLines = 0
-        overviewLabel.textAlignment = .left
-        overviewLabel.backgroundColor = .white
-        overviewLabel.textColor = .black
+        overviewTextView.text = "줄거리:\n\(overview)"
+        overviewTextView.textAlignment = .left
+        overviewTextView.backgroundColor = .white
+        overviewTextView.textColor = .black
+        overviewTextView.isEditable = false
     }
     
     func designTitle() {
@@ -52,5 +59,34 @@ class DetailViewController: UIViewController {
         }
         infoLabel.text = text
         infoLabel.numberOfLines = 0
+    }
+    
+    func designMemo() {
+        memoTextView.text = placeholderText
+        memoTextView.textColor = .lightGray
+        memoTextView.backgroundColor = .white
+        memoTextView.isEditable = true
+        memoTextView.textAlignment = .left
+    }
+}
+
+extension DetailViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if memoTextView.text == placeholderText {
+            memoTextView.text = nil
+            memoTextView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if memoTextView.text.isEmpty {
+            memoTextView.text = placeholderText
+            memoTextView.textColor = .lightGray
+        }
     }
 }

@@ -19,7 +19,7 @@ class PopularTableViewCell: UITableViewCell {
     func configureCell(_ sender: Movie) {
         posterImageView.image = UIImage(named: sender.title)
         titleLabel.text = sender.title
-        infoLabel.text = sender.releaseDate
+        infoLabel.text = "★ \(sender.rate)점"
         
         
     }

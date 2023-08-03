@@ -28,13 +28,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy5-UJ-JzI">
-                                <rect key="frame" x="140" y="55" width="160" height="21"/>
+                                <rect key="frame" x="140" y="98" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-nY-C58">
-                                <rect key="frame" x="140" y="111" width="160" height="20.333333333333343"/>
+                                <rect key="frame" x="140" y="50" width="160" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,15 +42,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QT0-nY-C58" firstAttribute="top" secondItem="v6q-NQ-QPP" secondAttribute="top" constant="50" id="0vu-uF-Nwz"/>
                             <constraint firstAttribute="bottom" secondItem="VFN-Fi-q8f" secondAttribute="bottom" id="5Dr-ov-xFb"/>
-                            <constraint firstAttribute="bottom" secondItem="QT0-nY-C58" secondAttribute="bottom" constant="38.666666666666686" id="J9L-sV-Du2"/>
+                            <constraint firstItem="hy5-UJ-JzI" firstAttribute="leading" secondItem="VFN-Fi-q8f" secondAttribute="trailing" constant="20" id="CsF-RD-sfE"/>
                             <constraint firstItem="VFN-Fi-q8f" firstAttribute="leading" secondItem="v6q-NQ-QPP" secondAttribute="leading" id="XHu-Rb-ObX"/>
-                            <constraint firstAttribute="trailing" secondItem="hy5-UJ-JzI" secondAttribute="trailing" constant="20" id="Xro-Ni-oRq"/>
-                            <constraint firstItem="QT0-nY-C58" firstAttribute="trailing" secondItem="hy5-UJ-JzI" secondAttribute="trailing" id="aK6-yi-aZn"/>
-                            <constraint firstItem="hy5-UJ-JzI" firstAttribute="leading" secondItem="VFN-Fi-q8f" secondAttribute="trailing" constant="20" id="ffX-Kr-JyG"/>
+                            <constraint firstItem="QT0-nY-C58" firstAttribute="trailing" secondItem="hy5-UJ-JzI" secondAttribute="trailing" id="XYp-me-i4K"/>
+                            <constraint firstItem="hy5-UJ-JzI" firstAttribute="top" secondItem="QT0-nY-C58" secondAttribute="bottom" constant="27.666666666666671" id="gH5-5b-gL6"/>
                             <constraint firstItem="VFN-Fi-q8f" firstAttribute="top" secondItem="v6q-NQ-QPP" secondAttribute="top" id="lt0-bc-z88"/>
-                            <constraint firstItem="QT0-nY-C58" firstAttribute="leading" secondItem="VFN-Fi-q8f" secondAttribute="trailing" constant="20" id="ut1-Mq-ax4"/>
-                            <constraint firstItem="hy5-UJ-JzI" firstAttribute="top" secondItem="v6q-NQ-QPP" secondAttribute="top" constant="55" id="v6O-XV-BZD"/>
+                            <constraint firstAttribute="trailing" secondItem="hy5-UJ-JzI" secondAttribute="trailing" constant="20" symbolic="YES" id="tOR-Tn-rfC"/>
+                            <constraint firstItem="QT0-nY-C58" firstAttribute="leading" secondItem="VFN-Fi-q8f" secondAttribute="trailing" constant="20" id="va3-aR-qMe"/>
                         </constraints>
                     </view>
                 </subviews>

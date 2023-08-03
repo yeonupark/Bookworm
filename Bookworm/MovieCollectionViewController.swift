@@ -7,15 +7,22 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+//private let reuseIdentifier = "Cell"
 
 class MovieCollectionViewController: UICollectionViewController {
-
+    
+    let searchBar = UISearchBar()
+    
     var myMovie = MovieInfo()
     var colors: [UIColor] = [.systemPink, .systemOrange, .systemMint, .systemYellow, .purple, .systemBrown, .systemCyan, .systemGray, .systemIndigo]
+    var searchList : [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        searchBar.placeholder = "검색할 영화 제목을 입력해주세요!"
+        searchBar.showsCancelButton = true
+        navigationItem.titleView = searchBar
         
         let nib = UINib(nibName: "MovieCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "MovieCollectionViewCell")
@@ -23,6 +30,7 @@ class MovieCollectionViewController: UICollectionViewController {
         setCollectionViewLayout()
         
         colors = colors.shuffled()
+        searchList = myMovie.movie
     }
     
     func setCollectionViewLayout() {
@@ -40,13 +48,15 @@ class MovieCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myMovie.movie.count
+        //return myMovie.movie.count
+        return searchList.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
-        let row = myMovie.movie[indexPath.row]
+        //let row = myMovie.movie[indexPath.row]
+        let row = searchList[indexPath.row]
         cell.titleLabel.text = row.title
         cell.posterImageView.image = UIImage(named: row.title)
         cell.rateLabel.text = String(row.rate)
@@ -66,7 +76,8 @@ class MovieCollectionViewController: UICollectionViewController {
     
     @objc
     func likeButtonClicked(_ sender: UIButton){
-        myMovie.movie[sender.tag].like.toggle()
+        //myMovie.movie[sender.tag].like.toggle()
+        searchList[sender.tag].like.toggle()
         
         collectionView.reloadData()
     }
@@ -76,7 +87,8 @@ class MovieCollectionViewController: UICollectionViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
-        let item = myMovie.movie[indexPath.item]
+        //let item = myMovie.movie[indexPath.item]
+        let item = searchList[indexPath.item]
         
         vc.movieTitle = item.title
         vc.overview = item.overview
@@ -86,8 +98,9 @@ class MovieCollectionViewController: UICollectionViewController {
         vc.backgroundColor = colors[indexPath.row]
         vc.heart = item.like
         
-        present(vc, animated: true)
-        //navigationController?.pushViewController(vc, animated: true)
+        //let nav = UINavigationController(rootViewController: vc)
+        //present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
@@ -104,4 +117,37 @@ class MovieCollectionViewController: UICollectionViewController {
     
     
     
+}
+
+extension MovieCollectionViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchList.removeAll()
+        for i in Array(0...myMovie.movie.count-1){
+            if myMovie.movie[i].title.contains(searchBar.text!) {
+                searchList.append(myMovie.movie[i])
+                print(myMovie.movie[i].title)
+            }
+        }
+        collectionView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchList = myMovie.movie
+        searchBar.text = ""
+        collectionView.endEditing(true)
+        collectionView.reloadData()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchList.removeAll()
+        for i in Array(0...myMovie.movie.count-1){
+            if myMovie.movie[i].title.contains(searchBar.text!) {
+                searchList.append(myMovie.movie[i])
+                print(myMovie.movie[i].title)
+            }
+        }
+        if searchBar.text == "" {
+            searchList = myMovie.movie
+        }
+        collectionView.reloadData()
+    }
+
 }

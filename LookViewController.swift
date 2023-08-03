@@ -17,14 +17,13 @@ class LookViewController: UIViewController,  UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarItem.title = "둘러보기"
         let nib = UINib(nibName: "PopularTableViewCell", bundle: nil)
         popularTableView.register(nib, forCellReuseIdentifier: "PopularTableViewCell")
-        
         
         popularTableView.delegate = self
         popularTableView.dataSource = self
         
-       
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

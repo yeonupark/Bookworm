@@ -6,21 +6,39 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Kingfisher
 
-//private let reuseIdentifier = "Cell"
+struct Book {
+    let title: String
+    let image: String
+    let author: String
+    let price: Int
+    let publisher: String
+    let overview: String
+    var like = false
+}
 
 class MovieCollectionViewController: UICollectionViewController {
     
     let searchBar = UISearchBar()
     
-    var myMovie = MovieInfo()
-    var colors: [UIColor] = [.systemPink, .systemOrange, .systemMint, .systemYellow, .purple, .systemBrown, .systemCyan, .systemGray, .systemIndigo]
-    var searchList : [Movie] = []
+    var bookList : [Book] = []
+    //var myMovie = MovieInfo()
+    var page = 1
+    var isEnd = false
     
+    var colors: [UIColor] = [.systemPink, .systemOrange, .systemMint, .systemYellow, .purple, .systemBrown, .systemCyan, .systemGray, .systemIndigo]
+    //var searchList : [Movie] = []
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.prefetchDataSource = self
+
         searchBar.delegate = self
-        searchBar.placeholder = "검색할 영화 제목을 입력해주세요!"
+        searchBar.placeholder = "검색할 책 제목을 입력해주세요!"
         searchBar.showsCancelButton = true
         navigationItem.titleView = searchBar
         
@@ -30,7 +48,8 @@ class MovieCollectionViewController: UICollectionViewController {
         setCollectionViewLayout()
         
         colors = colors.shuffled()
-        searchList = myMovie.movie
+        //searchList = myMovie.movie
+        
     }
     
     func setCollectionViewLayout() {
@@ -48,28 +67,35 @@ class MovieCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return myMovie.movie.count
-        return searchList.count
+        
+        return bookList.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
         //let row = myMovie.movie[indexPath.row]
-        let row = searchList[indexPath.row]
-        cell.titleLabel.text = row.title
-        cell.posterImageView.image = UIImage(named: row.title)
-        cell.rateLabel.text = String(row.rate)
+        let item = bookList[indexPath.item]
         
-        let heart = row.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        cell.titleLabel.text = item.title
+        cell.titleLabel.font = .boldSystemFont(ofSize: 14)
         
-        cell.likeButton.setImage(heart, for: .normal)
-        cell.likeButton.tintColor = .white
+        cell.rateLabel.text = String(item.author)
+        cell.rateLabel.font = .systemFont(ofSize: 14)
         
-        cell.designCell(color: colors[indexPath.row])
+        if let url = URL(string: item.image) {
+            cell.posterImageView.kf.setImage(with: url)
+        }
         
-        cell.likeButton.tag = indexPath.row
-        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+//        let heart = item.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+//
+//        cell.likeButton.setImage(heart, for: .normal)
+//        cell.likeButton.tintColor = .white
+//
+//        cell.likeButton.tag = indexPath.row
+//        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        
+        cell.designCell(color: .orange)
         
         return cell
     }
@@ -77,7 +103,8 @@ class MovieCollectionViewController: UICollectionViewController {
     @objc
     func likeButtonClicked(_ sender: UIButton){
         //myMovie.movie[sender.tag].like.toggle()
-        searchList[sender.tag].like.toggle()
+        //searchList[sender.tag].like.toggle()
+        
         
         collectionView.reloadData()
     }
@@ -88,18 +115,16 @@ class MovieCollectionViewController: UICollectionViewController {
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
         //let item = myMovie.movie[indexPath.item]
-        let item = searchList[indexPath.item]
+        let item = bookList[indexPath.item]
         
         vc.movieTitle = item.title
         vc.overview = item.overview
-        vc.runtime = item.runtime
-        vc.rate = item.rate
-        vc.releaseDate = item.releaseDate
-        vc.backgroundColor = colors[indexPath.row]
-        vc.heart = item.like
+        vc.runtime = item.price
+        vc.rate = item.publisher
+        vc.releaseDate = item.author
+        vc.backgroundColor = .orange
+        //vc.heart = item.like
         
-        //let nav = UINavigationController(rootViewController: vc)
-        //present(vc, animated: true)
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -115,39 +140,95 @@ class MovieCollectionViewController: UICollectionViewController {
         present(nav, animated: true)
     }
     
+    func callrequest(query: String, page: Int){
+        
+        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let url = "https://dapi.kakao.com/v3/search/book?query=\(text)&size=20&page=\(page)"
+        let header: HTTPHeaders = ["Authorization":"KakaoAK ed611cdb23909b15d68b0011e02b41a5"]
+        
+        AF.request(url, method: .get, headers: header).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                //print("JSON: \(json)")
+                print(page)
+                
+                self.isEnd = json["meta"]["is_end"].boolValue // 마지막 페이지인 순간에 true가 될 것
+                print(self.isEnd)
+                
+                for item in json["documents"].arrayValue {
+                    let title = item["title"].stringValue
+                    let author = item["authors"][0].stringValue
+                    let image = item["thumbnail"].stringValue
+                    let publisher = item["publisher"].stringValue
+                    let price = item["price"].intValue
+                    let overview = item["contents"].stringValue
+                    
+                    let book = Book(title: title, image: image, author: author, price: price, publisher: publisher, overview: overview)
+                    self.bookList.append(book)
+                    self.collectionView.reloadData()
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     
 }
 
-extension MovieCollectionViewController: UISearchBarDelegate {
+extension MovieCollectionViewController: UISearchBarDelegate, UICollectionViewDataSourcePrefetching {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchList.removeAll()
-        for i in Array(0...myMovie.movie.count-1){
-            if myMovie.movie[i].title.contains(searchBar.text!) {
-                searchList.append(myMovie.movie[i])
-                print(myMovie.movie[i].title)
-            }
-        }
+        bookList.removeAll()
+        page = 1
+        
+        guard let text = searchBar.text else { return }
+        callrequest(query: text, page: page)
+        
+//        for i in Array(0...myMovie.movie.count-1){
+//            if myMovie.movie[i].title.contains(searchBar.text!) {
+//                searchList.append(myMovie.movie[i])
+//                print(myMovie.movie[i].title)
+//            }
+//        }
+        
+//        searchBar.endEditing(true)
         collectionView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchList = myMovie.movie
+        //searchList = myMovie.movie
+        bookList.removeAll()
         searchBar.text = ""
         collectionView.endEditing(true)
         collectionView.reloadData()
     }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchList.removeAll()
-        for i in Array(0...myMovie.movie.count-1){
-            if myMovie.movie[i].title.contains(searchBar.text!) {
-                searchList.append(myMovie.movie[i])
-                print(myMovie.movie[i].title)
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        bookList.removeAll()
+//
+//        for i in Array(0...myMovie.movie.count-1){
+//            if myMovie.movie[i].title.contains(searchBar.text!) {
+//                searchList.append(myMovie.movie[i])
+//                print(myMovie.movie[i].title)
+//            }
+//        }
+//        if searchBar.text == "" {
+//            searchList = myMovie.movie
+//        }
+//        collectionView.reloadData()
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if bookList.count - 1 == indexPath.row && page < 50 && !isEnd{
+                page += 1
+                callrequest(query: searchBar.text!, page: page)
             }
         }
-        if searchBar.text == "" {
-            searchList = myMovie.movie
-        }
-        collectionView.reloadData()
     }
-
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        print("==== 취소: \(indexPaths)")
+    }
 }

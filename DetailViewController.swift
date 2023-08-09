@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     
     var movieTitle: String = "제목"
     var releaseDate: String = "날짜"
-    var rate: Float = 0
+    var rate: String = ""
     var overview: String = "줄거리"
     var runtime: Int = 0
     var backgroundColor: UIColor = .white
@@ -53,7 +53,7 @@ class DetailViewController: UIViewController {
     }
     
     func designInfo() {
-        var text = "개봉일: \(releaseDate) \n평점: \(rate) \n러닝타임: \(runtime)분"
+        var text = "작가: \(releaseDate) \n출판사: \(rate) \n가격: \(runtime)원"
         if heart {
             text = "* 내가 찜한 영화 *\n\(text)"
         }
@@ -77,8 +77,12 @@ extension DetailViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if memoTextView.text == placeholderText {
-            memoTextView.text = nil
+//        if memoTextView.text == placeholderText {
+//            memoTextView.text = nil
+//            memoTextView.textColor = .black
+//        }
+        // 플레이스 홀더 처리 ..
+        if memoTextView.textColor == .lightGray {
             memoTextView.textColor = .black
         }
     }

@@ -50,7 +50,7 @@ class RecentTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         vc.movieTitle = item.title
         vc.overview = item.overview
         vc.runtime = item.runtime
-        vc.rate = item.rate
+        //vc.rate = item.rate
         vc.releaseDate = item.releaseDate
         vc.backgroundColor = .gray
 

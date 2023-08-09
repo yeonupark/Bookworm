@@ -52,6 +52,21 @@
             </objects>
             <point key="canvasLocation" x="1740" y="4"/>
         </scene>
+        <!--First View Controller-->
+        <scene sceneID="9FO-Uc-0br">
+            <objects>
+                <viewController storyboardIdentifier="FirstViewController" id="KWI-P0-e1N" customClass="FirstViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9uL-Tb-BhW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0df-n8-eLf"/>
+                        <color key="backgroundColor" red="0.88957744836807251" green="0.90638774633407593" blue="0.4190317690372467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LBO-zP-Wgd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3137" y="715"/>
+        </scene>
         <!--둘러보기-->
         <scene sceneID="Umq-Mz-3k8">
             <objects>

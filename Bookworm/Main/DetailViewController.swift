@@ -15,12 +15,15 @@ class DetailViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
     
-    var movieTitle: String = "제목"
-    var releaseDate: String = "날짜"
-    var rate: String = ""
+    var selectedBook = Book(title: "", image: "", author: "", price: 0, publisher: "", overview: "")
+    
+    var bookTitle: String = "제목"
+    var publisher: String = "날짜"
+    var author: String = ""
     var overview: String = "줄거리"
-    var runtime: Int = 0
-    var backgroundColor: UIColor = .white
+    var price: Int = 0
+    var imagePath: String = ""
+    var backgroundColor: UIColor = .systemGreen
     var heart = false
     
     let placeholderText = "메모를 작성해보세요!"
@@ -28,7 +31,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgroundColor
-        title = movieTitle
+        
+        title = bookTitle
+        getInfo()
         
         memoTextView.delegate = self
         designMemo()
@@ -37,6 +42,17 @@ class DetailViewController: UIViewController {
         designInfo()
         designOverview()
         
+    }
+    
+    func getInfo() {
+        bookTitle = selectedBook.title
+        overview = selectedBook.overview
+        price = selectedBook.price
+        publisher = selectedBook.publisher
+        author = selectedBook.author
+        imagePath = selectedBook.image
+        backgroundColor = .orange
+
     }
     
     func designOverview() {
@@ -48,12 +64,12 @@ class DetailViewController: UIViewController {
     }
     
     func designTitle() {
-        titleLabel.text = movieTitle
+        titleLabel.text = bookTitle
         titleLabel.font = .boldSystemFont(ofSize: 30)
     }
     
     func designInfo() {
-        var text = "작가: \(releaseDate) \n출판사: \(rate) \n가격: \(runtime)원"
+        var text = "작가: \(author) \n출판사: \(publisher) \n가격: \(price)원"
         if heart {
             text = "* 내가 찜한 영화 *\n\(text)"
         }

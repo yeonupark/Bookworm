@@ -52,25 +52,32 @@
             </objects>
             <point key="canvasLocation" x="1740" y="4"/>
         </scene>
-        <!--First View Controller-->
-        <scene sceneID="9FO-Uc-0br">
+        <!--My Book View Controller-->
+        <scene sceneID="bkG-lg-zYe">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" id="KWI-P0-e1N" customClass="FirstViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9uL-Tb-BhW">
+                <viewController storyboardIdentifier="MyBookViewController" id="ge1-nR-H6J" customClass="MyBookViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uyD-O4-KcE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="0df-n8-eLf"/>
-                        <color key="backgroundColor" red="0.88957744836807251" green="0.90638774633407593" blue="0.4190317690372467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Soe-hf-Rx5">
+                                <rect key="frame" x="0.0" y="51" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dG8-UN-lug"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9ep-2c-EUV"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LBO-zP-Wgd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3t-pH-dij" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3137" y="715"/>
+            <point key="canvasLocation" x="1799.2366412213739" y="1372.5352112676057"/>
         </scene>
-        <!--둘러보기-->
+        <!--메인화면-->
         <scene sceneID="Umq-Mz-3k8">
             <objects>
-                <viewController storyboardIdentifier="LookViewController" id="P5h-a3-nCU" customClass="LookViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LookViewController" id="P5h-a3-nCU" customClass="MainViewController" customModule="Bookworm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t13-Xu-XF6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +147,7 @@
                             <constraint firstItem="Izn-w5-OrD" firstAttribute="bottom" secondItem="dhc-5p-TtZ" secondAttribute="bottom" id="zTG-1p-pLl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="둘러보기" selectedImage="star.fill" catalog="system" id="iu9-5T-OAK">
+                    <tabBarItem key="tabBarItem" title="메인화면" image="house" catalog="system" selectedImage="house.fill" id="iu9-5T-OAK">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
                     <connections>
@@ -149,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YF8-Rg-Y5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2195" y="715"/>
+            <point key="canvasLocation" x="873" y="685"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="1Zo-AF-kNR">
@@ -256,11 +263,11 @@
             </objects>
             <point key="canvasLocation" x="3385" y="4"/>
         </scene>
-        <!--메인화면-->
+        <!--둘러보기-->
         <scene sceneID="UWJ-9R-aMS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vyl-lU-5Xi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="메인화면" id="g0L-df-eZs"/>
+                    <tabBarItem key="tabBarItem" title="둘러보기" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="g0L-df-eZs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HWi-lN-p62">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -288,14 +295,39 @@
                     <connections>
                         <segue destination="P5h-a3-nCU" kind="relationship" relationship="viewControllers" id="ioc-kI-Luk"/>
                         <segue destination="Vyl-lU-5Xi" kind="relationship" relationship="viewControllers" id="a8q-kE-p1h"/>
+                        <segue destination="tju-Sk-9Tp" kind="relationship" relationship="viewControllers" id="Nmt-9Y-Xsh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKQ-Zp-srU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-320" y="616"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="RnR-1V-Rfa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tju-Sk-9Tp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="book" catalog="system" selectedImage="book.fill" id="UiC-1h-Czp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aB8-AA-7p4">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ge1-nR-H6J" kind="relationship" relationship="rootViewController" id="FGL-H3-c62"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XdS-g4-5qU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872.51908396946567" y="1372.5352112676057"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LookViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
 
     let myMovie = MovieInfo()
     
@@ -17,7 +17,8 @@ class LookViewController: UIViewController,  UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarItem.title = "둘러보기"
+        tabBarItem.title = "메인화면"
+        tabBarItem.image = UIImage(systemName: "house")
         let nib = UINib(nibName: "PopularTableViewCell", bundle: nil)
         popularTableView.register(nib, forCellReuseIdentifier: "PopularTableViewCell")
         
@@ -67,23 +68,23 @@ class LookViewController: UIViewController,  UITableViewDelegate, UITableViewDat
         return 170
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        
-        let item = myMovie.movie[indexPath.item]
-        
-        vc.movieTitle = item.title
-        vc.overview = item.overview
-        vc.runtime = item.runtime
-        //vc.rate = item.rate
-        vc.releaseDate = item.releaseDate
-        vc.backgroundColor = .gray
-        
-        present(vc, animated: true)
-        //navigationController?.pushViewController(vc, animated: true)
-        
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+//
+//        let item = myMovie.movie[indexPath.item]
+//
+//        vc.movieTitle = item.title
+//        vc.overview = item.overview
+//        vc.runtime = item.runtime
+//        //vc.rate = item.rate
+//        vc.releaseDate = item.releaseDate
+//        vc.backgroundColor = .gray
+//
+//        present(vc, animated: true)
+//        //navigationController?.pushViewController(vc, animated: true)
+//
+//    }
 
 
 }

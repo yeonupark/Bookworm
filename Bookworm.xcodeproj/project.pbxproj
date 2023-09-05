@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48595BF02A7C8B6A00621C6F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48595BEF2A7C8B6A00621C6F /* FirstViewController.swift */; };
-		48B60DD82A7A51E2002235BD /* LookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B60DD72A7A51E2002235BD /* LookViewController.swift */; };
+		48B60DD82A7A51E2002235BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B60DD72A7A51E2002235BD /* MainViewController.swift */; };
 		48B60DDB2A7A548C002235BD /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B60DD92A7A548C002235BD /* RecentCollectionViewCell.swift */; };
 		48B60DDC2A7A548C002235BD /* RecentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B60DDA2A7A548C002235BD /* RecentCollectionViewCell.xib */; };
-		48B60DDE2A7A5E2D002235BD /* recentHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B60DDD2A7A5E2D002235BD /* recentHeaderCollectionReusableView.swift */; };
 		48B60DE12A7A6755002235BD /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B60DDF2A7A6755002235BD /* PopularTableViewCell.swift */; };
 		48B60DE22A7A6755002235BD /* PopularTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B60DE02A7A6755002235BD /* PopularTableViewCell.xib */; };
 		48B60DE82A7A923C002235BD /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B60DE72A7A923C002235BD /* RecentTableViewCell.swift */; };
@@ -20,7 +18,6 @@
 		48CDD8132A83AF5800813D6A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 48CDD8122A83AF5800813D6A /* SwiftyJSON */; };
 		48DBF0052A77D713008454E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0042A77D713008454E4 /* AppDelegate.swift */; };
 		48DBF0072A77D713008454E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0062A77D713008454E4 /* SceneDelegate.swift */; };
-		48DBF0092A77D713008454E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0082A77D713008454E4 /* ViewController.swift */; };
 		48DBF00C2A77D713008454E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF00A2A77D713008454E4 /* Main.storyboard */; };
 		48DBF00E2A77D718008454E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF00D2A77D718008454E4 /* Assets.xcassets */; };
 		48DBF0112A77D718008454E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DBF00F2A77D718008454E4 /* LaunchScreen.storyboard */; };
@@ -32,21 +29,25 @@
 		48DBF0232A77F015008454E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0222A77F015008454E4 /* DetailViewController.swift */; };
 		48DBF0252A77F434008454E4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0242A77F434008454E4 /* SearchViewController.swift */; };
 		48DBF0272A77FBDD008454E4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBF0262A77FBDD008454E4 /* Extension.swift */; };
+		48DFFA1A2AA70CD300B5D13B /* MyBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFFA192AA70CD300B5D13B /* MyBookViewController.swift */; };
+		48DFFA1D2AA713A000B5D13B /* MyBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFFA1C2AA713A000B5D13B /* MyBookTableViewCell.swift */; };
+		48DFFA202AA7156900B5D13B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48DFFA1F2AA7156900B5D13B /* SnapKit */; };
+		48DFFA232AA71B5D00B5D13B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 48DFFA222AA71B5D00B5D13B /* Realm */; };
+		48DFFA252AA71B5D00B5D13B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 48DFFA242AA71B5D00B5D13B /* RealmSwift */; };
+		48DFFA282AA71BA100B5D13B /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFFA272AA71BA100B5D13B /* RealmModel.swift */; };
+		48DFFA2A2AA72EDE00B5D13B /* MyBookEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFFA292AA72EDE00B5D13B /* MyBookEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		48595BEF2A7C8B6A00621C6F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = SOURCE_ROOT; };
-		48B60DD72A7A51E2002235BD /* LookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookViewController.swift; sourceTree = SOURCE_ROOT; };
-		48B60DD92A7A548C002235BD /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		48B60DDA2A7A548C002235BD /* RecentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
-		48B60DDD2A7A5E2D002235BD /* recentHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recentHeaderCollectionReusableView.swift; sourceTree = SOURCE_ROOT; };
-		48B60DDF2A7A6755002235BD /* PopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		48B60DE02A7A6755002235BD /* PopularTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		48B60DD72A7A51E2002235BD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Bookworm/Main/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		48B60DD92A7A548C002235BD /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentCollectionViewCell.swift; path = Bookworm/Recent/RecentCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		48B60DDA2A7A548C002235BD /* RecentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RecentCollectionViewCell.xib; path = Bookworm/Recent/RecentCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		48B60DDF2A7A6755002235BD /* PopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopularTableViewCell.swift; path = Bookworm/Popular/PopularTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		48B60DE02A7A6755002235BD /* PopularTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PopularTableViewCell.xib; path = Bookworm/Popular/PopularTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		48B60DE72A7A923C002235BD /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		48DBF0012A77D713008454E4 /* Bookworm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookworm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DBF0042A77D713008454E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48DBF0062A77D713008454E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		48DBF0082A77D713008454E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48DBF00B2A77D713008454E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48DBF00D2A77D718008454E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48DBF0102A77D718008454E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,9 +57,13 @@
 		48DBF01C2A77E539008454E4 /* MovieCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewController.swift; sourceTree = "<group>"; };
 		48DBF01E2A77E58C008454E4 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		48DBF01F2A77E58C008454E4 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
-		48DBF0222A77F015008454E4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		48DBF0242A77F434008454E4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		48DBF0222A77F015008454E4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Bookworm/Main/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		48DBF0242A77F434008454E4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Bookworm/Search/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		48DBF0262A77FBDD008454E4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		48DFFA192AA70CD300B5D13B /* MyBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookViewController.swift; sourceTree = "<group>"; };
+		48DFFA1C2AA713A000B5D13B /* MyBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookTableViewCell.swift; sourceTree = "<group>"; };
+		48DFFA272AA71BA100B5D13B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		48DFFA292AA72EDE00B5D13B /* MyBookEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48DFFA252AA71B5D00B5D13B /* RealmSwift in Frameworks */,
 				48CDD8132A83AF5800813D6A /* SwiftyJSON in Frameworks */,
+				48DFFA202AA7156900B5D13B /* SnapKit in Frameworks */,
 				48CDD80D2A83AF2B00813D6A /* Kingfisher in Frameworks */,
 				48CDD8102A83AF3900813D6A /* Alamofire in Frameworks */,
+				48DFFA232AA71B5D00B5D13B /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,31 +102,88 @@
 		48DBF0032A77D713008454E4 /* Bookworm */ = {
 			isa = PBXGroup;
 			children = (
-				48595BEF2A7C8B6A00621C6F /* FirstViewController.swift */,
-				48B60DDF2A7A6755002235BD /* PopularTableViewCell.swift */,
-				48B60DE02A7A6755002235BD /* PopularTableViewCell.xib */,
-				48B60DDD2A7A5E2D002235BD /* recentHeaderCollectionReusableView.swift */,
-				48B60DD92A7A548C002235BD /* RecentCollectionViewCell.swift */,
-				48B60DDA2A7A548C002235BD /* RecentCollectionViewCell.xib */,
-				48B60DD72A7A51E2002235BD /* LookViewController.swift */,
-				48DBF0242A77F434008454E4 /* SearchViewController.swift */,
-				48DBF0222A77F015008454E4 /* DetailViewController.swift */,
+				48DFFA262AA71B8F00B5D13B /* Realm */,
+				48DFFA1B2AA70D2A00B5D13B /* Book */,
+				48DFFA182AA70B0E00B5D13B /* Main */,
+				48DFFA172AA7094300B5D13B /* Search */,
+				48DFFA162AA708D600B5D13B /* Movie */,
+				48DFFA152AA7088400B5D13B /* Popular */,
+				48DFFA142AA7086100B5D13B /* Recent */,
 				48DBF0042A77D713008454E4 /* AppDelegate.swift */,
 				48DBF0262A77FBDD008454E4 /* Extension.swift */,
 				48DBF0062A77D713008454E4 /* SceneDelegate.swift */,
-				48DBF0082A77D713008454E4 /* ViewController.swift */,
 				48DBF00A2A77D713008454E4 /* Main.storyboard */,
-				48B60DE72A7A923C002235BD /* RecentTableViewCell.swift */,
-				48DBF01E2A77E58C008454E4 /* MovieCollectionViewCell.swift */,
-				48DBF01F2A77E58C008454E4 /* MovieCollectionViewCell.xib */,
-				48DBF01C2A77E539008454E4 /* MovieCollectionViewController.swift */,
-				48DBF0182A77D879008454E4 /* MovieInfo.swift */,
-				48DBF01A2A77D8AF008454E4 /* Movie.swift */,
 				48DBF00D2A77D718008454E4 /* Assets.xcassets */,
 				48DBF00F2A77D718008454E4 /* LaunchScreen.storyboard */,
 				48DBF0122A77D718008454E4 /* Info.plist */,
 			);
 			path = Bookworm;
+			sourceTree = "<group>";
+		};
+		48DFFA142AA7086100B5D13B /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				48B60DE72A7A923C002235BD /* RecentTableViewCell.swift */,
+				48B60DDA2A7A548C002235BD /* RecentCollectionViewCell.xib */,
+				48B60DD92A7A548C002235BD /* RecentCollectionViewCell.swift */,
+			);
+			path = Recent;
+			sourceTree = "<group>";
+		};
+		48DFFA152AA7088400B5D13B /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				48B60DE02A7A6755002235BD /* PopularTableViewCell.xib */,
+				48B60DDF2A7A6755002235BD /* PopularTableViewCell.swift */,
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
+		48DFFA162AA708D600B5D13B /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				48DBF01E2A77E58C008454E4 /* MovieCollectionViewCell.swift */,
+				48DBF01F2A77E58C008454E4 /* MovieCollectionViewCell.xib */,
+				48DBF01C2A77E539008454E4 /* MovieCollectionViewController.swift */,
+				48DBF0182A77D879008454E4 /* MovieInfo.swift */,
+				48DBF01A2A77D8AF008454E4 /* Movie.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		48DFFA172AA7094300B5D13B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				48DBF0242A77F434008454E4 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		48DFFA182AA70B0E00B5D13B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				48B60DD72A7A51E2002235BD /* MainViewController.swift */,
+				48DBF0222A77F015008454E4 /* DetailViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		48DFFA1B2AA70D2A00B5D13B /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				48DFFA192AA70CD300B5D13B /* MyBookViewController.swift */,
+				48DFFA1C2AA713A000B5D13B /* MyBookTableViewCell.swift */,
+				48DFFA292AA72EDE00B5D13B /* MyBookEditViewController.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		48DFFA262AA71B8F00B5D13B /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				48DFFA272AA71BA100B5D13B /* RealmModel.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +206,9 @@
 				48CDD80C2A83AF2B00813D6A /* Kingfisher */,
 				48CDD80F2A83AF3900813D6A /* Alamofire */,
 				48CDD8122A83AF5800813D6A /* SwiftyJSON */,
+				48DFFA1F2AA7156900B5D13B /* SnapKit */,
+				48DFFA222AA71B5D00B5D13B /* Realm */,
+				48DFFA242AA71B5D00B5D13B /* RealmSwift */,
 			);
 			productName = Bookworm;
 			productReference = 48DBF0012A77D713008454E4 /* Bookworm.app */;
@@ -174,6 +242,8 @@
 				48CDD80B2A83AF2B00813D6A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				48CDD80E2A83AF3900813D6A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				48CDD8112A83AF5800813D6A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				48DFFA1E2AA7156900B5D13B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				48DFFA212AA71B5D00B5D13B /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 48DBF0022A77D713008454E4 /* Products */;
 			projectDirPath = "";
@@ -205,21 +275,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48DBF0092A77D713008454E4 /* ViewController.swift in Sources */,
 				48B60DE82A7A923C002235BD /* RecentTableViewCell.swift in Sources */,
+				48DFFA1A2AA70CD300B5D13B /* MyBookViewController.swift in Sources */,
 				48DBF0052A77D713008454E4 /* AppDelegate.swift in Sources */,
+				48DFFA2A2AA72EDE00B5D13B /* MyBookEditViewController.swift in Sources */,
 				48DBF0192A77D879008454E4 /* MovieInfo.swift in Sources */,
 				48DBF0252A77F434008454E4 /* SearchViewController.swift in Sources */,
 				48DBF0072A77D713008454E4 /* SceneDelegate.swift in Sources */,
 				48DBF0272A77FBDD008454E4 /* Extension.swift in Sources */,
-				48B60DD82A7A51E2002235BD /* LookViewController.swift in Sources */,
-				48B60DDE2A7A5E2D002235BD /* recentHeaderCollectionReusableView.swift in Sources */,
+				48B60DD82A7A51E2002235BD /* MainViewController.swift in Sources */,
 				48DBF0202A77E58C008454E4 /* MovieCollectionViewCell.swift in Sources */,
 				48DBF01B2A77D8AF008454E4 /* Movie.swift in Sources */,
-				48595BF02A7C8B6A00621C6F /* FirstViewController.swift in Sources */,
 				48B60DDB2A7A548C002235BD /* RecentCollectionViewCell.swift in Sources */,
 				48B60DE12A7A6755002235BD /* PopularTableViewCell.swift in Sources */,
 				48DBF01D2A77E539008454E4 /* MovieCollectionViewController.swift in Sources */,
+				48DFFA282AA71BA100B5D13B /* RealmModel.swift in Sources */,
+				48DFFA1D2AA713A000B5D13B /* MyBookTableViewCell.swift in Sources */,
 				48DBF0232A77F015008454E4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +535,22 @@
 				kind = branch;
 			};
 		};
+		48DFFA1E2AA7156900B5D13B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		48DFFA212AA71B5D00B5D13B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -481,6 +568,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 48CDD8112A83AF5800813D6A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		48DFFA1F2AA7156900B5D13B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48DFFA1E2AA7156900B5D13B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		48DFFA222AA71B5D00B5D13B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48DFFA212AA71B5D00B5D13B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		48DFFA242AA71B5D00B5D13B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48DFFA212AA71B5D00B5D13B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

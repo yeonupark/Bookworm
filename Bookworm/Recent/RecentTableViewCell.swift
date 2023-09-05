@@ -40,23 +40,23 @@ class RecentTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-
-        let item = myMovie.movie[indexPath.item]
-
-        vc.movieTitle = item.title
-        vc.overview = item.overview
-        vc.runtime = item.runtime
-        //vc.rate = item.rate
-        vc.releaseDate = item.releaseDate
-        vc.backgroundColor = .gray
-
-        //present(vc,animated: true)
-        //navigationController?.pushViewController(vc, animated: true)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+//
+//        let item = myMovie.movie[indexPath.item]
+//
+//        vc.movieTitle = item.title
+//        vc.overview = item.overview
+//        vc.runtime = item.runtime
+//        //vc.rate = item.rate
+//        vc.releaseDate = item.releaseDate
+//        vc.backgroundColor = .gray
+//
+//        //present(vc,animated: true)
+//        //navigationController?.pushViewController(vc, animated: true)
+//    }
     func configureRecentLayout(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

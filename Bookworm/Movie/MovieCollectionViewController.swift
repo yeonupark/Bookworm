@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import RealmSwift
 
 struct Book {
     let title: String
@@ -114,18 +115,33 @@ class MovieCollectionViewController: UICollectionViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
-        //let item = myMovie.movie[indexPath.item]
         let item = bookList[indexPath.item]
-        
-        vc.movieTitle = item.title
-        vc.overview = item.overview
-        vc.runtime = item.price
-        vc.rate = item.publisher
-        vc.releaseDate = item.author
-        vc.backgroundColor = .orange
-        //vc.heart = item.like
+        vc.selectedBook = item
         
         navigationController?.pushViewController(vc, animated: true)
+        
+        let realm = try! Realm()
+        
+        guard let url = URL(string: item.image) else { return }
+        
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            
+            let task = BookTable(bookTitle: item.title, author: item.author, publisher: item.publisher, price: String(item.price), imageData: imageData, bookLike: true, memo: nil)
+            
+            DispatchQueue.main.async {
+                do {
+                    try realm.write {
+                        realm.add(task)
+                    }
+                } catch {
+                    print("에러 ..")
+                }
+            }
+            
+        }
+        
+        
     }
 
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
@@ -141,6 +157,7 @@ class MovieCollectionViewController: UICollectionViewController {
     }
     
     func callrequest(query: String, page: Int){
+        searchBar.endEditing(true)
         
         let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
@@ -202,7 +219,7 @@ extension MovieCollectionViewController: UISearchBarDelegate, UICollectionViewDa
         //searchList = myMovie.movie
         bookList.removeAll()
         searchBar.text = ""
-        collectionView.endEditing(true)
+        searchBar.endEditing(true)
         collectionView.reloadData()
     }
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

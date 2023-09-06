@@ -16,8 +16,7 @@ class BookTable: Object {
     @Persisted var publisher: String?
     @Persisted var price: String?
     //@Persisted var bookImage: String?
-    @Persisted var imageData: Data?
-    @Persisted var bookLike: Bool
+    @Persisted var image: Data?
     @Persisted var memo : String?
     
     convenience init(bookTitle: String, author: String?, publisher: String?, price: String?, imageData: Data?, bookLike: Bool, memo: String?) {
@@ -27,8 +26,7 @@ class BookTable: Object {
         self.author = author
         self.publisher = publisher
         self.price = price
-        self.imageData = imageData
-        self.bookLike = false
+        self.image = imageData
         self.memo = memo
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
-import RealmSwift
 
 struct Book {
     let title: String
@@ -110,6 +109,8 @@ class MovieCollectionViewController: UICollectionViewController {
         collectionView.reloadData()
     }
     
+    let repository = BookTableRepository()
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -120,8 +121,6 @@ class MovieCollectionViewController: UICollectionViewController {
         
         navigationController?.pushViewController(vc, animated: true)
         
-        let realm = try! Realm()
-        
         guard let url = URL(string: item.image) else { return }
         
         DispatchQueue.global().async {
@@ -130,13 +129,7 @@ class MovieCollectionViewController: UICollectionViewController {
             let task = BookTable(bookTitle: item.title, author: item.author, publisher: item.publisher, price: String(item.price), imageData: imageData, bookLike: true, memo: nil)
             
             DispatchQueue.main.async {
-                do {
-                    try realm.write {
-                        realm.add(task)
-                    }
-                } catch {
-                    print("에러 ..")
-                }
+                self.repository.createItem(task)
             }
             
         }

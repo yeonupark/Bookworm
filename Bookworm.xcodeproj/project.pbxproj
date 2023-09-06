@@ -36,6 +36,7 @@
 		48DFFA252AA71B5D00B5D13B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 48DFFA242AA71B5D00B5D13B /* RealmSwift */; };
 		48DFFA282AA71BA100B5D13B /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFFA272AA71BA100B5D13B /* RealmModel.swift */; };
 		48DFFA2A2AA72EDE00B5D13B /* MyBookEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFFA292AA72EDE00B5D13B /* MyBookEditViewController.swift */; };
+		48E804862AA8BF39006E04E0 /* BookTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E804852AA8BF39006E04E0 /* BookTableRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		48DFFA1C2AA713A000B5D13B /* MyBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookTableViewCell.swift; sourceTree = "<group>"; };
 		48DFFA272AA71BA100B5D13B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		48DFFA292AA72EDE00B5D13B /* MyBookEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookEditViewController.swift; sourceTree = "<group>"; };
+		48E804852AA8BF39006E04E0 /* BookTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				48DFFA272AA71BA100B5D13B /* RealmModel.swift */,
+				48E804852AA8BF39006E04E0 /* BookTableRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B60DE82A7A923C002235BD /* RecentTableViewCell.swift in Sources */,
+				48E804862AA8BF39006E04E0 /* BookTableRepository.swift in Sources */,
 				48DFFA1A2AA70CD300B5D13B /* MyBookViewController.swift in Sources */,
 				48DBF0052A77D713008454E4 /* AppDelegate.swift in Sources */,
 				48DFFA2A2AA72EDE00B5D13B /* MyBookEditViewController.swift in Sources */,

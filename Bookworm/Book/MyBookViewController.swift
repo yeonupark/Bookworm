@@ -28,18 +28,35 @@ class MyBookViewController: UIViewController {
         return view
     }()
     
-    let realm = try! Realm()
+    let repository = BookTableRepository()
     var tasks: Results<BookTable>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repository.checkSchemaVersion()
         
         tabBarItem.title = "내 서재"
         tabBarItem.image = UIImage(systemName: "book")
         
-        tasks = realm.objects(BookTable.self)
+        tasks = repository.fetch()
         
+        configure()
+        setConstraints()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    func configure() {
         view.addSubview(navBar)
         view.addSubview(tableView)
+    }
+    func setConstraints() {
         navBar.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
         }
@@ -47,12 +64,6 @@ class MyBookViewController: UIViewController {
             make.top.equalTo(navBar.snp.bottom)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
     }
 }
 
@@ -70,8 +81,8 @@ extension MyBookViewController: UITableViewDelegate, UITableViewDataSource {
         cell.publisher.text = "[\(data.publisher ?? "")]"
         cell.price.text = "\(data.price ?? "")원"
         cell.memo.text = "메모: \(data.memo ?? "")"
-        guard let imageData = data.imageData else { return cell }
-        cell.bookImage.image = UIImage(data: imageData)
+        guard let image = data.image else { return cell }
+        cell.bookImage.image = UIImage(data: image)
         
         return cell
     }
@@ -90,13 +101,8 @@ extension MyBookViewController: UITableViewDelegate, UITableViewDataSource {
         let data = self.tasks[indexPath.row]
         
         let delete = UIContextualAction(style: .destructive, title: nil) { action, view, completionHandler in
-            do {
-                try self.realm.write {
-                    self.realm.delete(data)
-                }
-            } catch {
-                print("에러")
-            }
+
+            self.repository.deleteItem(data)
             tableView.reloadData()
         }
         delete.image = UIImage(systemName: "minus.circle")

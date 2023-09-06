@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MyBookTableViewCell: UITableViewCell {
+final class MyBookTableViewCell: UITableViewCell {
     
     let bookImage = {
         let view = UIImageView()

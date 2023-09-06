@@ -6,15 +6,32 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let config = Realm.Configuration(schemaVersion: 6) { migration, oldSchemaVersion in
+            
+            if oldSchemaVersion < 1 { } //
+            
+            if oldSchemaVersion < 2 { } //
+            
+            if oldSchemaVersion < 3 { } //
+            
+            if oldSchemaVersion < 4 { } //
+            
+            if oldSchemaVersion < 5 { } // bookLike 컬럼 삭제
+            
+            if oldSchemaVersion < 6 { // imageData -> image 컬럼명 수정
+                
+                migration.renameProperty(onType: BookTable.className(), from: "imageData", to: "image")
+                
+            }
+        }
+        Realm.Configuration.defaultConfiguration = config
         
         UILabel.appearance().textColor = .black
         

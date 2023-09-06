@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MyBookEditViewController: UIViewController {
     
     var data = BookTable(bookTitle: "", author: "", publisher: "", price: "", imageData: nil, bookLike: false, memo: "")
-    
-    let realm = try! Realm()
     
     let memoTextField = {
         let view = UITextField()
@@ -22,6 +19,8 @@ class MyBookEditViewController: UIViewController {
         
         return view
     }()
+    
+    let repository = BookTableRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,19 +36,12 @@ class MyBookEditViewController: UIViewController {
     
     @objc func doneButtonClicked() {
         
-        guard let imageData = data.imageData else { return }
+        guard let imageData = data.image else { return }
         guard let memoText = memoTextField.text else { return }
         
-        let item = BookTable(value: ["_id" : data._id, "bookTitle": data.bookTitle, "author": data.author, "publisher": data.publisher, "price": data.price, "imageData": imageData, "bookLike": data.bookLike, "memo": memoText])
+        let item = BookTable(value: ["_id" : data._id, "bookTitle": data.bookTitle, "author": data.author, "publisher": data.publisher, "price": data.price, "image": imageData, "memo": memoText])
         
-        do {
-            try realm.write {
-                realm.add(item, update: .modified)
-            }
-        } catch {
-            print("????") //
-        }
-    
+        repository.editItem(item)
         navigationController?.popViewController(animated: true)
     }
 }

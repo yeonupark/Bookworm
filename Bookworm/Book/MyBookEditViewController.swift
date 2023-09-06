@@ -36,12 +36,9 @@ class MyBookEditViewController: UIViewController {
     
     @objc func doneButtonClicked() {
         
-        guard let imageData = data.image else { return }
         guard let memoText = memoTextField.text else { return }
         
-        let item = BookTable(value: ["_id" : data._id, "bookTitle": data.bookTitle, "author": data.author, "publisher": data.publisher, "price": data.price, "image": imageData, "memo": memoText])
-        
-        repository.editItem(item)
+        repository.updateMemo(id: data._id, memo: memoText)
         navigationController?.popViewController(animated: true)
     }
 }

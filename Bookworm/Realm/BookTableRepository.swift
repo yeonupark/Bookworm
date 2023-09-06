@@ -43,14 +43,24 @@ class BookTableRepository: BookTableRepositoryType {
         }
     }
     
-    func editItem(_ item: BookTable) {
+    func editItem(_ item: BookTable) { // 레코드 전체 데이터 받아와서 수정
         
         do {
             try realm.write {
                 realm.add(item, update: .modified)
             }
         } catch {
-            print("????") //
+            print("????")
+        }
+    }
+    
+    func updateMemo(id: ObjectId, memo: String) { // 메모 부분만 바꾸기
+        do {
+            try realm.write {
+                realm.create(BookTable.self, value: ["_id": id, "memo": memo], update: .modified)
+            }
+        } catch {
+            print("????")
         }
     }
     
